@@ -1,0 +1,31 @@
+{% load socialaccount %}
+{% providers_media_js %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+</head>
+<body>
+<hi>LOGIN</hi>
+<form method="POST">
+    {% csrf_token %}
+
+    <input type="text" name="username"placeholder="username"><br>
+    <input type="password" name="password" placeholder="password"><br>
+    <button type="login" class="btn btn-primary">login</button><br>
+
+    <a class="btn btn-primary btn-lg btn-block"  href="{% provider_login_url "facebook" method="oauth2" %}"
+            role="button">
+            <i class="fab fa-facebook-f me-2"></i>login with Facebook
+    </a><br>
+
+    <a class="btn btn-primary btn-lg btn-block"  href="{% provider_login_url "google" %}"
+            role="button">
+            <i class="fab fa-google me-2"></i>login with Google
+    </a>
+
+</form>
+</body>
+</html>
